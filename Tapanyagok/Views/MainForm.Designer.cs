@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonFirst = new System.Windows.Forms.Button();
-            this.buttonPrev = new System.Windows.Forms.Button();
-            this.buttonNext = new System.Windows.Forms.Button();
-            this.buttonLast = new System.Windows.Forms.Button();
-            this.pageLabel = new System.Windows.Forms.Label();
-            this.textBoxSearchText = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.energiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +37,14 @@
             this.zsirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.szenhidratDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tapanyagBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonFirst = new System.Windows.Forms.Button();
+            this.buttonPrev = new System.Windows.Forms.Button();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.buttonLast = new System.Windows.Forms.Button();
+            this.pageLabel = new System.Windows.Forms.Label();
+            this.textBoxSearchText = new System.Windows.Forms.TextBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tapanyagBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -61,10 +62,61 @@
             this.szenhidratDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tapanyagBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 39);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(776, 358);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nevDataGridViewTextBoxColumn
+            // 
+            this.nevDataGridViewTextBoxColumn.DataPropertyName = "nev";
+            this.nevDataGridViewTextBoxColumn.HeaderText = "nev";
+            this.nevDataGridViewTextBoxColumn.Name = "nevDataGridViewTextBoxColumn";
+            this.nevDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // energiaDataGridViewTextBoxColumn
+            // 
+            this.energiaDataGridViewTextBoxColumn.DataPropertyName = "energia";
+            this.energiaDataGridViewTextBoxColumn.HeaderText = "energia";
+            this.energiaDataGridViewTextBoxColumn.Name = "energiaDataGridViewTextBoxColumn";
+            this.energiaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // feherjeDataGridViewTextBoxColumn
+            // 
+            this.feherjeDataGridViewTextBoxColumn.DataPropertyName = "feherje";
+            this.feherjeDataGridViewTextBoxColumn.HeaderText = "feherje";
+            this.feherjeDataGridViewTextBoxColumn.Name = "feherjeDataGridViewTextBoxColumn";
+            this.feherjeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // zsirDataGridViewTextBoxColumn
+            // 
+            this.zsirDataGridViewTextBoxColumn.DataPropertyName = "zsir";
+            this.zsirDataGridViewTextBoxColumn.HeaderText = "zsir";
+            this.zsirDataGridViewTextBoxColumn.Name = "zsirDataGridViewTextBoxColumn";
+            this.zsirDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // szenhidratDataGridViewTextBoxColumn
+            // 
+            this.szenhidratDataGridViewTextBoxColumn.DataPropertyName = "szenhidrat";
+            this.szenhidratDataGridViewTextBoxColumn.HeaderText = "szenhidrat";
+            this.szenhidratDataGridViewTextBoxColumn.Name = "szenhidratDataGridViewTextBoxColumn";
+            this.szenhidratDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tapanyagBindingSource
+            // 
+            this.tapanyagBindingSource.DataSource = typeof(Tapanyagok.Models.tapanyag);
             // 
             // buttonFirst
             // 
@@ -132,51 +184,22 @@
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // idDataGridViewTextBoxColumn
+            // buttonDelete
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // nevDataGridViewTextBoxColumn
-            // 
-            this.nevDataGridViewTextBoxColumn.DataPropertyName = "nev";
-            this.nevDataGridViewTextBoxColumn.HeaderText = "nev";
-            this.nevDataGridViewTextBoxColumn.Name = "nevDataGridViewTextBoxColumn";
-            // 
-            // energiaDataGridViewTextBoxColumn
-            // 
-            this.energiaDataGridViewTextBoxColumn.DataPropertyName = "energia";
-            this.energiaDataGridViewTextBoxColumn.HeaderText = "energia";
-            this.energiaDataGridViewTextBoxColumn.Name = "energiaDataGridViewTextBoxColumn";
-            // 
-            // feherjeDataGridViewTextBoxColumn
-            // 
-            this.feherjeDataGridViewTextBoxColumn.DataPropertyName = "feherje";
-            this.feherjeDataGridViewTextBoxColumn.HeaderText = "feherje";
-            this.feherjeDataGridViewTextBoxColumn.Name = "feherjeDataGridViewTextBoxColumn";
-            // 
-            // zsirDataGridViewTextBoxColumn
-            // 
-            this.zsirDataGridViewTextBoxColumn.DataPropertyName = "zsir";
-            this.zsirDataGridViewTextBoxColumn.HeaderText = "zsir";
-            this.zsirDataGridViewTextBoxColumn.Name = "zsirDataGridViewTextBoxColumn";
-            // 
-            // szenhidratDataGridViewTextBoxColumn
-            // 
-            this.szenhidratDataGridViewTextBoxColumn.DataPropertyName = "szenhidrat";
-            this.szenhidratDataGridViewTextBoxColumn.HeaderText = "szenhidrat";
-            this.szenhidratDataGridViewTextBoxColumn.Name = "szenhidratDataGridViewTextBoxColumn";
-            // 
-            // tapanyagBindingSource
-            // 
-            this.tapanyagBindingSource.DataSource = typeof(Tapanyagok.Models.tapanyag);
+            this.buttonDelete.Location = new System.Drawing.Point(439, 10);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.TabIndex = 4;
+            this.buttonDelete.Text = "Törlés";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.textBoxSearchText);
             this.Controls.Add(this.pageLabel);
@@ -212,6 +235,7 @@
         private System.Windows.Forms.Label pageLabel;
         private System.Windows.Forms.TextBox textBoxSearchText;
         private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
 

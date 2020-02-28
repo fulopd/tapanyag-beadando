@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tapanyagok.Models;
 using Tapanyagok.Repositories;
 using Tapanyagok.ViewInterfaces;
 
@@ -29,6 +30,11 @@ namespace Tapanyagok.Presenters
                 );
 
             view.totalitems = repo.Count();
+        }
+
+        public void delete(tapanyag item) 
+        {
+            repo.delete(item);
         }
 
     }

@@ -18,6 +18,7 @@ namespace Tapanyagok
         private TapanyagPresenter presenter;
         private int pageCount;
         private int colIndex;
+        private tapanyag selectedItem;
 
 
 
@@ -127,6 +128,22 @@ namespace Tapanyagok
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             presenter.loadData();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (selectedItem != null)
+            {
+                MessageBox.Show("torol");
+                presenter.delete(selectedItem);
+            }
+            presenter.loadData();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedItem = (tapanyag)dataGridView1.SelectedRows[0].DataBoundItem;
+            
         }
     }
 }

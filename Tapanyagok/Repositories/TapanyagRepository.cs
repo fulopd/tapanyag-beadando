@@ -26,12 +26,7 @@ namespace Tapanyagok.Repositories
                 search = search.ToLower();
 
                 query = query.Where(x =>
-                    x.nev.ToLower().Contains(search) 
-                    //||
-                    //x.szenhidrat.Equals(search) ||
-                    //x.energia.Equals(search) ||
-                    //x.zsir.Equals(search) ||
-                    //x.feherje.Equals(search)
+                    x.nev.ToLower().Contains(search)                     
                 );
             }
 
@@ -91,6 +86,7 @@ namespace Tapanyagok.Repositories
         public void insert(tapanyag item) 
         {
             db.tapanyag.Add(item);
+            Save();
         }
 
         public void update(int id, tapanyag item) 
@@ -103,12 +99,15 @@ namespace Tapanyagok.Repositories
                 temp.feherje = item.feherje;
                 temp.zsir = item.zsir;
                 temp.szenhidrat = item.szenhidrat;
+                Save();
             }
+            
         }
 
         public void delete(tapanyag item)
-        {
+        {            
             db.tapanyag.Remove(item);
+            Save();
         }
 
         public int Count()
