@@ -8,7 +8,7 @@ using Tapanyagok.Models;
 
 namespace Tapanyagok.Repositories
 {
-    class TapanyagRepository
+    class TapanyagRepository :IDisposable
     {
         tapanyagokContext db = new tapanyagokContext();
         private int _totalItems;
@@ -72,42 +72,35 @@ namespace Tapanyagok.Repositories
             return new BindingList<tapanyag>(query.ToList());
         }
 
-        public tapanyag getTapanyag(int id) 
+        public tapanyag GetTapanyag(int id) 
         {
             return db.tapanyag.FirstOrDefault(r => r.id == id);
         }
 
-        public bool exists(tapanyag item) 
+        public bool Exists(tapanyag item) 
         {
             tapanyag temp = db.tapanyag.FirstOrDefault(r => r.id == item.id);
             return temp != null ? true : false;
         }
 
-        public void insert(tapanyag item) 
+        public void Insert(tapanyag item) 
         {
             db.tapanyag.Add(item);
-            Save();
+           
         }
 
-        public void update(int id, tapanyag item) 
+        public void Update(tapanyag item) 
         {
-            tapanyag temp = db.tapanyag.FirstOrDefault(r => r.id == id);
+            tapanyag temp = db.tapanyag.Find(item.id);
             if (temp != null)
             {
-                temp.nev = item.nev;
-                temp.energia = item.energia;
-                temp.feherje = item.feherje;
-                temp.zsir = item.zsir;
-                temp.szenhidrat = item.szenhidrat;
-                Save();
-            }
-            
+                db.Entry(temp).CurrentValues.SetValues(item);
+            }            
         }
 
-        public void delete(tapanyag item)
+        public void Delete(tapanyag item)
         {            
-            db.tapanyag.Remove(item);
-            Save();
+            db.tapanyag.Remove(item);           
         }
 
         public int Count()
@@ -118,6 +111,19 @@ namespace Tapanyagok.Repositories
         public void Save()
         {
             db.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
         }
     }
 }

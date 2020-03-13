@@ -1,6 +1,6 @@
 ﻿namespace Tapanyagok
 {
-    partial class MainForm
+    partial class TablazatForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TablazatForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,15 +43,26 @@
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonLast = new System.Windows.Forms.Button();
             this.pageLabel = new System.Windows.Forms.Label();
-            this.textBoxSearchText = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonSava = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripTextBoxSearchText = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonSearch = new System.Windows.Forms.ToolStripButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemModify = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tapanyagBindingSource)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -60,11 +72,11 @@
             this.feherjeDataGridViewTextBoxColumn,
             this.zsirDataGridViewTextBoxColumn,
             this.szenhidratDataGridViewTextBoxColumn});
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.DataSource = this.tapanyagBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 39);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(776, 358);
@@ -77,42 +89,36 @@
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nevDataGridViewTextBoxColumn
             // 
             this.nevDataGridViewTextBoxColumn.DataPropertyName = "nev";
             this.nevDataGridViewTextBoxColumn.HeaderText = "nev";
             this.nevDataGridViewTextBoxColumn.Name = "nevDataGridViewTextBoxColumn";
-            this.nevDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // energiaDataGridViewTextBoxColumn
             // 
             this.energiaDataGridViewTextBoxColumn.DataPropertyName = "energia";
             this.energiaDataGridViewTextBoxColumn.HeaderText = "energia";
             this.energiaDataGridViewTextBoxColumn.Name = "energiaDataGridViewTextBoxColumn";
-            this.energiaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // feherjeDataGridViewTextBoxColumn
             // 
             this.feherjeDataGridViewTextBoxColumn.DataPropertyName = "feherje";
             this.feherjeDataGridViewTextBoxColumn.HeaderText = "feherje";
             this.feherjeDataGridViewTextBoxColumn.Name = "feherjeDataGridViewTextBoxColumn";
-            this.feherjeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // zsirDataGridViewTextBoxColumn
             // 
             this.zsirDataGridViewTextBoxColumn.DataPropertyName = "zsir";
             this.zsirDataGridViewTextBoxColumn.HeaderText = "zsir";
             this.zsirDataGridViewTextBoxColumn.Name = "zsirDataGridViewTextBoxColumn";
-            this.zsirDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // szenhidratDataGridViewTextBoxColumn
             // 
             this.szenhidratDataGridViewTextBoxColumn.DataPropertyName = "szenhidrat";
             this.szenhidratDataGridViewTextBoxColumn.HeaderText = "szenhidrat";
             this.szenhidratDataGridViewTextBoxColumn.Name = "szenhidratDataGridViewTextBoxColumn";
-            this.szenhidratDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tapanyagBindingSource
             // 
@@ -167,52 +173,104 @@
             this.pageLabel.TabIndex = 2;
             this.pageLabel.Text = "0 / 0";
             // 
-            // textBoxSearchText
+            // toolStrip1
             // 
-            this.textBoxSearchText.Location = new System.Drawing.Point(12, 12);
-            this.textBoxSearchText.Name = "textBoxSearchText";
-            this.textBoxSearchText.Size = new System.Drawing.Size(340, 20);
-            this.textBoxSearchText.TabIndex = 3;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonSava,
+            this.toolStripButtonNew,
+            this.toolStripButtonDelete,
+            this.toolStripTextBoxSearchText,
+            this.toolStripButtonSearch});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // buttonSearch
+            // toolStripButtonSava
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(358, 10);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch.TabIndex = 4;
-            this.buttonSearch.Text = "Keresés";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.toolStripButtonSava.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSava.Image")));
+            this.toolStripButtonSava.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSava.Name = "toolStripButtonSava";
+            this.toolStripButtonSava.Size = new System.Drawing.Size(66, 22);
+            this.toolStripButtonSava.Text = "Mentés";
+            this.toolStripButtonSava.Click += new System.EventHandler(this.toolStripButtonSava_Click);
             // 
-            // buttonDelete
+            // toolStripButtonNew
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(439, 10);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete.TabIndex = 4;
-            this.buttonDelete.Text = "Törlés";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            this.toolStripButtonNew.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNew.Image")));
+            this.toolStripButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonNew.Name = "toolStripButtonNew";
+            this.toolStripButtonNew.Size = new System.Drawing.Size(38, 22);
+            this.toolStripButtonNew.Text = "Új";
+            this.toolStripButtonNew.Click += new System.EventHandler(this.toolStripButtonNew_Click);
             // 
-            // MainForm
+            // toolStripButtonDelete
+            // 
+            this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
+            this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDelete.Name = "toolStripButtonDelete";
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(58, 22);
+            this.toolStripButtonDelete.Text = "Törlés";
+            this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
+            // 
+            // toolStripTextBoxSearchText
+            // 
+            this.toolStripTextBoxSearchText.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxSearchText.Name = "toolStripTextBoxSearchText";
+            this.toolStripTextBoxSearchText.Size = new System.Drawing.Size(150, 25);
+            // 
+            // toolStripButtonSearch
+            // 
+            this.toolStripButtonSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSearch.Image")));
+            this.toolStripButtonSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSearch.Name = "toolStripButtonSearch";
+            this.toolStripButtonSearch.Size = new System.Drawing.Size(66, 22);
+            this.toolStripButtonSearch.Text = "Keresés";
+            this.toolStripButtonSearch.Click += new System.EventHandler(this.toolStripButtonSearch_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemModify,
+            this.toolStripMenuItemRemove});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // toolStripMenuItemModify
+            // 
+            this.toolStripMenuItemModify.Name = "toolStripMenuItemModify";
+            this.toolStripMenuItemModify.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemModify.Text = "Szerkesztes";
+            this.toolStripMenuItemModify.Click += new System.EventHandler(this.toolStripMenuItemModify_Click);
+            // 
+            // toolStripMenuItemRemove
+            // 
+            this.toolStripMenuItemRemove.Name = "toolStripMenuItemRemove";
+            this.toolStripMenuItemRemove.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemRemove.Text = "Törlés";
+            this.toolStripMenuItemRemove.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
+            // 
+            // TablazatForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.textBoxSearchText);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pageLabel);
             this.Controls.Add(this.buttonLast);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.buttonFirst);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "MainForm";
+            this.Name = "TablazatForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tapanyagBindingSource)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,9 +291,15 @@
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button buttonLast;
         private System.Windows.Forms.Label pageLabel;
-        private System.Windows.Forms.TextBox textBoxSearchText;
-        private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSava;
+        private System.Windows.Forms.ToolStripButton toolStripButtonNew;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearchText;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSearch;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemModify;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRemove;
     }
 }
 

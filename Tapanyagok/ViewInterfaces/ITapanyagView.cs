@@ -7,8 +7,8 @@ using Tapanyagok.Models;
 
 namespace Tapanyagok.ViewInterfaces
 {
-    interface ITapanyagView : ITablazatView<tapanyag>
+    interface ITapanyagView
     {
-        List<tapanyag> tapanyag { get; set; }
+        tapanyag tapanyag { get; set; }
     }
 }
